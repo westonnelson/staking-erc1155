@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThirdwebProvider, useContract } from "@thirdweb-dev/react";
+import { ThirdwebProvider, useContract Web3Button} from "@thirdweb-dev/react";
 
 function App() {
   return (
@@ -17,8 +17,23 @@ function Component() {
     return <div>Loading...</div>;
   }
 
-  // Assuming contract has a `name` property
-  return <div>Contract Name: {contract?.name}</div>;
+  return (
+    <div>
+      <div>Contract Name: {contract?.name}</div>
+      <Home contract={contract} />
+    </div>
+  );
 }
+
+const Home = ({ contract }) => {
+  return (
+    <Web3Button
+      contractAddress={contract.address}
+      action={async () => contract.call("myFunctionName")}
+    >
+      Call myFunctionName from the connected wallet
+    </Web3Button>
+  );
+};
 
 export default App;
