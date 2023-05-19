@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThirdwebProvider, useContract Web3Button} from "@thirdweb-dev/react";
+import { ThirdwebProvider, useContract, Web3Button} from "@thirdweb-dev/react";
 
 function App() {
   return (
